@@ -4,10 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>webpack-template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Weather app</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <div class="container">
+        <div class="header">
+            <div class="logo-head">
+                <i class="fa-solid fa-cloud-sun-rain"></i>
+            </div>
+            <div class="project-name">
+                <h1>Weather App</h1>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <div class="location-name">
+                <input type="text" placeholder="Enter city name">
+            </div>
+            <div class="location-search">
+                <button>Search</button>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card-section">
+                <div class="city-name"> <h1>Nagpur</h1></div>
+                <div class="city-temp"><h1>23.01</h1></div>
+                <div class="readings">
+                    <div class="fells-like">Fells like: 22.01</div>
+                    <div class="humidity">Humidity: 23%</div>
+                    <div class="wind">Wind: 12.04 km/h</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    
     <script src="main.js"></script>
 </body>
 </html>
