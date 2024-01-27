@@ -14,9 +14,9 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/app */ \"./src/modules/app.js\");\n/* harmony import */ var _modules_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/view */ \"./src/modules/view.js\");\n\r\n\r\n\r\n_modules_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getWeatherData(\"nagpur\")\r\n_modules_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"].displayCard(\"Nagpur\")\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/app */ \"./src/modules/app.js\");\n/* harmony import */ var _modules_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/view */ \"./src/modules/view.js\");\n\r\n\r\n\r\nconst getData = await _modules_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getWeatherData(\"pune\")\r\n_modules_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"].displayCard(getData)\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getTemperature = (()=>{\r\n    const convertData = (data)=>{\r\n      const name = data.location.name\r\n      const {\r\n        temp_c:temp_in_c,\r\n        feelslike_c:what_feelslike_c,\r\n        temp_f:temp_in_f,\r\n        feelslike_f:what_feelslike_f,\r\n        wind_kph:wind_in_kph,\r\n        humidity:what_humidity\r\n        } = data.current;\r\n       const condition = data.current.condition.text;\r\n        return{name,temp_in_c,what_feelslike_c,temp_in_f,what_feelslike_f,wind_in_kph,what_humidity,condition}\r\n    }\r\n\r\n    async function getWeatherData(city){\r\n        const apiUrl = `https://api.weatherapi.com/v1/current.json?key=1fb9b24b0ecd46f3b25110719242301&q=${city}`;\r\n        \r\n        try{\r\n            const response = await fetch(apiUrl, {mode:'cors'})\r\n            if(!response.ok) throw new Error(`entered ${city} is not a city`)\r\n            const data = convertData(await response.json())\r\n            // const data = await response.json()\r\n            console.log(data)\r\n            return data\r\n        }\r\n        catch(error){\r\n            alert(error)\r\n            return null\r\n        }\r\n}\r\nreturn{getWeatherData}\r\n})();\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTemperature);\r\n\r\n\n\n//# sourceURL=webpack://webpack-template-repo/./src/modules/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getTemperature = (()=>{\r\n    const convertData = (data)=>{\r\n      const name = data.location.name\r\n      const {\r\n        temp_c:temp_in_c,\r\n        feelslike_c:what_feelslike_c,\r\n        temp_f:temp_in_f,\r\n        feelslike_f:what_feelslike_f,\r\n        wind_kph:wind_in_kph,\r\n        humidity:what_humidity\r\n        } = data.current;\r\n       const condition = data.current.condition.text;\r\n        return{name,temp_in_c,what_feelslike_c,temp_in_f,what_feelslike_f,wind_in_kph,what_humidity,condition}\r\n    }\r\n\r\n    async function getWeatherData(city){\r\n        const apiUrl = `https://api.weatherapi.com/v1/current.json?key=1fb9b24b0ecd46f3b25110719242301&q=${city}`;\r\n        \r\n        try{\r\n            const response = await fetch(apiUrl, {mode:'cors'})\r\n            if(!response.ok) throw new Error(`entered ${city} is not a city`)\r\n            const data = convertData(await response.json())\r\n            return data\r\n        }\r\n        catch(error){\r\n            alert(error)\r\n            return null\r\n        }\r\n}\r\nreturn{getWeatherData}\r\n})();\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTemperature);\r\n\r\n\n\n//# sourceURL=webpack://webpack-template-repo/./src/modules/app.js?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getCard = (()=>{\r\n    function displayCard(data){\r\n        const card = document.getElementById(\"card-container\")\r\n        card.innerHTML=\r\n        `\r\n        <div class=\"card-section\" id=\"card-section\">\r\n                    <div class=\"city-name\"><h1>${data}</h1></div>\r\n                    <div class=\"city-temp\"><h1>23.01</h1></div>\r\n                    <div class=\"readings\">\r\n                        <div class=\"fells-like\">Fells like: 22.01</div>\r\n                        <div class=\"humidity\">Humidity: 23%</div>\r\n                        <div class=\"wind\">Wind: 12.04 km/h</div>\r\n                    </div>\r\n                    \r\n        </div>\r\n        `\r\n    } \r\n    return {displayCard}\r\n})();\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCard);\n\n//# sourceURL=webpack://webpack-template-repo/./src/modules/view.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getCard = (()=>{\r\n    function displayCard(data){\r\n        if(!data) return;\r\n        const cardSection = document.getElementById(\"card-container\")\r\n        cardSection.classList.add(\"active\")\r\n\r\n        const cityName = document.getElementById(\"cityName\")\r\n        const cityTemp = document.getElementById(\"cityTemp\")\r\n        const feelsLike = document.getElementById(\"feelsLike\")\r\n        const humidity = document.getElementById(\"humidity\")\r\n        const wind = document.getElementById(\"wind\")\r\n\r\n        cityName.innerText=`${data.name}`\r\n        cityTemp.innerText=`${data.temp_in_c} °C`\r\n        feelsLike.innerText=`Fells like: ${data.what_feelslike_c} °C`\r\n        humidity.innerText=`Humidity: ${data.what_humidity} %`\r\n        wind.innerText=`Wind: ${data.wind_in_kph} km/h`\r\n    } \r\n    return {displayCard}\r\n})();\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCard);\n\n//# sourceURL=webpack://webpack-template-repo/./src/modules/view.js?");
 
 /***/ })
 
@@ -67,6 +67,75 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/async module */
+/******/ 	(() => {
+/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
+/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
+/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
+/******/ 		var resolveQueue = (queue) => {
+/******/ 			if(queue && queue.d < 1) {
+/******/ 				queue.d = 1;
+/******/ 				queue.forEach((fn) => (fn.r--));
+/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
+/******/ 			}
+/******/ 		}
+/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
+/******/ 			if(dep !== null && typeof dep === "object") {
+/******/ 				if(dep[webpackQueues]) return dep;
+/******/ 				if(dep.then) {
+/******/ 					var queue = [];
+/******/ 					queue.d = 0;
+/******/ 					dep.then((r) => {
+/******/ 						obj[webpackExports] = r;
+/******/ 						resolveQueue(queue);
+/******/ 					}, (e) => {
+/******/ 						obj[webpackError] = e;
+/******/ 						resolveQueue(queue);
+/******/ 					});
+/******/ 					var obj = {};
+/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
+/******/ 					return obj;
+/******/ 				}
+/******/ 			}
+/******/ 			var ret = {};
+/******/ 			ret[webpackQueues] = x => {};
+/******/ 			ret[webpackExports] = dep;
+/******/ 			return ret;
+/******/ 		}));
+/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
+/******/ 			var queue;
+/******/ 			hasAwait && ((queue = []).d = -1);
+/******/ 			var depQueues = new Set();
+/******/ 			var exports = module.exports;
+/******/ 			var currentDeps;
+/******/ 			var outerResolve;
+/******/ 			var reject;
+/******/ 			var promise = new Promise((resolve, rej) => {
+/******/ 				reject = rej;
+/******/ 				outerResolve = resolve;
+/******/ 			});
+/******/ 			promise[webpackExports] = exports;
+/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
+/******/ 			module.exports = promise;
+/******/ 			body((deps) => {
+/******/ 				currentDeps = wrapDeps(deps);
+/******/ 				var fn;
+/******/ 				var getResult = () => (currentDeps.map((d) => {
+/******/ 					if(d[webpackError]) throw d[webpackError];
+/******/ 					return d[webpackExports];
+/******/ 				}))
+/******/ 				var promise = new Promise((resolve) => {
+/******/ 					fn = () => (resolve(getResult));
+/******/ 					fn.r = 0;
+/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
+/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
+/******/ 				});
+/******/ 				return fn.r ? promise : getResult();
+/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
+/******/ 			queue && queue.d < 0 && (queue.d = 0);
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
