@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/app */ \"./src/modules/app.js\");\n\r\n\r\n_modules_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getWeatherData(\"nagpur\")\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/app */ \"./src/modules/app.js\");\n/* harmony import */ var _modules_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/view */ \"./src/modules/view.js\");\n\r\n\r\n\r\n_modules_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getWeatherData(\"nagpur\")\r\n_modules_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"].displayCard(\"Nagpur\")\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
 
 /***/ }),
 
@@ -27,6 +27,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getTemperature = (()=>{\r\n    const convertData = (data)=>{\r\n      const name = data.location.name\r\n      const {\r\n        temp_c:temp_in_c,\r\n        feelslike_c:what_feelslike_c,\r\n        temp_f:temp_in_f,\r\n        feelslike_f:what_feelslike_f,\r\n        wind_kph:wind_in_kph,\r\n        humidity:what_humidity\r\n        } = data.current;\r\n       const condition = data.current.condition.text;\r\n        return{name,temp_in_c,what_feelslike_c,temp_in_f,what_feelslike_f,wind_in_kph,what_humidity,condition}\r\n    }\r\n\r\n    async function getWeatherData(city){\r\n        const apiUrl = `https://api.weatherapi.com/v1/current.json?key=1fb9b24b0ecd46f3b25110719242301&q=${city}`;\r\n        \r\n        try{\r\n            const response = await fetch(apiUrl, {mode:'cors'})\r\n            if(!response.ok) throw new Error(`entered ${city} is not a city`)\r\n            const data = convertData(await response.json())\r\n            // const data = await response.json()\r\n            console.log(data)\r\n            return data\r\n        }\r\n        catch(error){\r\n            alert(error)\r\n            return null\r\n        }\r\n}\r\nreturn{getWeatherData}\r\n})();\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTemperature);\r\n\r\n\n\n//# sourceURL=webpack://webpack-template-repo/./src/modules/app.js?");
+
+/***/ }),
+
+/***/ "./src/modules/view.js":
+/*!*****************************!*\
+  !*** ./src/modules/view.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getCard = (()=>{\r\n    function displayCard(data){\r\n        const card = document.getElementById(\"card-container\")\r\n        card.innerHTML=\r\n        `\r\n        <div class=\"card-section\" id=\"card-section\">\r\n                    <div class=\"city-name\"><h1>${data}</h1></div>\r\n                    <div class=\"city-temp\"><h1>23.01</h1></div>\r\n                    <div class=\"readings\">\r\n                        <div class=\"fells-like\">Fells like: 22.01</div>\r\n                        <div class=\"humidity\">Humidity: 23%</div>\r\n                        <div class=\"wind\">Wind: 12.04 km/h</div>\r\n                    </div>\r\n                    \r\n        </div>\r\n        `\r\n    } \r\n    return {displayCard}\r\n})();\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCard);\n\n//# sourceURL=webpack://webpack-template-repo/./src/modules/view.js?");
 
 /***/ })
 
