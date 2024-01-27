@@ -20,8 +20,6 @@ const getTemperature = (()=>{
             const response = await fetch(apiUrl, {mode:'cors'})
             if(!response.ok) throw new Error(`entered ${city} is not a city`)
             const data = convertData(await response.json())
-            // const data = await response.json()
-            console.log(data)
             return data
         }
         catch(error){

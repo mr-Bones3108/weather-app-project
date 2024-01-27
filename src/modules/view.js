@@ -1,19 +1,20 @@
 const getCard = (()=>{
     function displayCard(data){
-        const card = document.getElementById("card-container")
-        card.innerHTML=
-        `
-        <div class="card-section" id="card-section">
-                    <div class="city-name"><h1>${data}</h1></div>
-                    <div class="city-temp"><h1>23.01</h1></div>
-                    <div class="readings">
-                        <div class="fells-like">Fells like: 22.01</div>
-                        <div class="humidity">Humidity: 23%</div>
-                        <div class="wind">Wind: 12.04 km/h</div>
-                    </div>
-                    
-        </div>
-        `
+        if(!data) return;
+        const cardSection = document.getElementById("card-container")
+        cardSection.classList.add("active")
+
+        const cityName = document.getElementById("cityName")
+        const cityTemp = document.getElementById("cityTemp")
+        const feelsLike = document.getElementById("feelsLike")
+        const humidity = document.getElementById("humidity")
+        const wind = document.getElementById("wind")
+
+        cityName.innerText=`${data.name}`
+        cityTemp.innerText=`${data.temp_in_c} °C`
+        feelsLike.innerText=`Fells like: ${data.what_feelslike_c} °C`
+        humidity.innerText=`Humidity: ${data.what_humidity} %`
+        wind.innerText=`Wind: ${data.wind_in_kph} km/h`
     } 
     return {displayCard}
 })();

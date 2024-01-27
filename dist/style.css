@@ -78,9 +78,13 @@ body {
 /* card-section */
 
 .card-container{
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
+}
+
+.card-container.active{
+  display: flex;
 }
 
 .card-section{
