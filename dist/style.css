@@ -42,7 +42,7 @@ body {
 
 /* search-section  */
 
-.search-section{
+.form{
   display: flex;
   justify-content: center;
   align-items: center;
