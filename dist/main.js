@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("console.log(\"Hi\")\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
+eval("console.log(\"Hie\")\r\n\r\n\r\nfunction getTemperature(){\r\n    fetch(\"https://api.weatherapi.com/v1/current.json?key=1fb9b24b0ecd46f3b25110719242301&q=london\",{\r\n        mode:'cors'\r\n    }).then(function(response){\r\n        console.log(response)\r\n        return response.json()\r\n    }).then(function(data){\r\n        console.log(data.location.name)\r\n        console.log(data.current.temp_c)\r\n        console.log(data.current.feelslike_c)\r\n        console.log(data.current.humidity)\r\n        console.log(data.current.wind_kph)\r\n        console.log(data)\r\n    })\r\n}\r\n\r\ngetTemperature()\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
 
 /***/ })
 
