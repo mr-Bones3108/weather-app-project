@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/app */ \"./src/modules/app.js\");\n/* harmony import */ var _modules_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/view */ \"./src/modules/view.js\");\n\r\n\r\n\r\nconst getData = await _modules_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getWeatherData(\"pune\")\r\n_modules_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"].displayCard(getData)\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/app */ \"./src/modules/app.js\");\n/* harmony import */ var _modules_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/view */ \"./src/modules/view.js\");\n\r\n\r\n\r\nconst getData = await _modules_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getWeatherData(\"nagpur\")\r\n_modules_view__WEBPACK_IMPORTED_MODULE_1__[\"default\"].displayCard(getData)\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://webpack-template-repo/./src/index.js?");
 
 /***/ }),
 
