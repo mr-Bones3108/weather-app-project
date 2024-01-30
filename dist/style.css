@@ -119,9 +119,16 @@ body {
 }
 
 
-.gifSection {
+.gifSection{
+  display: none;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+
+.imgDiv {
   width: 300px;
-  height: 200px;
+  height: 300px;
   overflow: hidden;
   padding: 5px;
   display: none;
@@ -130,11 +137,14 @@ body {
 }
 .gifSection img {
   width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Remove any extra space */
-  margin: 0 auto; /* Center the image horizontally */
+  display: block; 
 }
 
 .gifSection.active{
   display: flex;
+}
+
+.imgDiv{
+  display: flex;
+  justify-content: center;
 }
