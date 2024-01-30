@@ -6,6 +6,7 @@
 }
 
 body {
+  background-color: var(--logo-color);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -13,11 +14,6 @@ body {
   --logo-color:#F8FAE5;
   --logo-head-color:#EBD9B4;
   --header-bg-color:#43766C;
-}
-
-.container{
-  background-color: var(--logo-color);
-  height: 100%;
 }
 
 /* header-section  */
